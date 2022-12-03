@@ -10,6 +10,7 @@ import (
 
 func PartOne(inputList string) int {
   maxCalsFound := 0
+  elfPackCals := 0
 
   elfPackStrs := strings.Split(inputList, "\n\n")
   for i := 0; i < len(elfPackStrs); i++ {
@@ -23,7 +24,7 @@ func PartOne(inputList string) int {
       itemsAsInts = append(itemsAsInts, intVar)
     }
 
-    elfPackCals := add(itemsAsInts)
+    elfPackCals = add(itemsAsInts)
     if elfPackCals > maxCalsFound {
       maxCalsFound = elfPackCals
     }
