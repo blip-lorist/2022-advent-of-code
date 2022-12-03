@@ -1,5 +1,9 @@
 package day01
 
-func DayOne(inputList string) int {
+func PartOne(inputList string) int {
+  return 0
+}
+
+func add(ints []int) int {
   return 0
 }

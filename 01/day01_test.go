@@ -2,7 +2,7 @@ package day01
 
 import "testing"
 
-func TestHello(t *testing.T){
+func TestPartOne(t *testing.T){
   testInput := `
 1000
 2000
@@ -19,7 +19,18 @@ func TestHello(t *testing.T){
 
 10000`
   expected := 24000
-  actual := DayOne(testInput)
+  actual := PartOne(testInput)
+
+  if expected != actual {
+    t.Errorf("got %d, wanted %d", expected, actual)
+  }
+}
+
+
+func TestAdd(t *testing.T){
+  testInput := []int{1000, 2000, 3000}
+  expected := 6000
+  actual := add(testInput)
 
   if expected != actual {
     t.Errorf("got %d, wanted %d", expected, actual)
