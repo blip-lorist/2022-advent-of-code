@@ -1,28 +1,34 @@
-package day01
+package main
 import (
-  "bufio"
-  "strconv"
+  //"bufio"
+  "fmt"
   "strings"
+  "io/ioutil"
+  "strconv"
   gm "github.com/spatialcurrent/go-math/pkg/math"
 )
 
 func PartOne(inputList string) int {
-  elfPack := []int{}
   maxCalsFound := 0
-  scanner := bufio.NewScanner(strings.NewReader(inputList))
-  for scanner.Scan() {
-    strVar := scanner.Text()
-    if strVar == "" {
-      elfPackCals := add(elfPack)
-      if elfPackCals > maxCalsFound {
-        maxCalsFound = elfPackCals
-      }
-      elfPack = []int{}
+
+  elfPackStrs := strings.Split(inputList, "\n\n")
+  for i := 0; i < len(elfPackStrs); i++ {
+    elfPack := elfPackStrs[i]
+    elfPackItems := strings.Split(elfPack, "\n")
+
+    itemsAsInts := []int{}
+    for j := 0; j < len(elfPackItems); j++ {
+      strVar := elfPackItems[j]
+      intVar, _ := strconv.Atoi(strVar)
+      itemsAsInts = append(itemsAsInts, intVar)
     }
 
-    intVar, _ := strconv.Atoi(strVar)
-    elfPack = append(elfPack, intVar)
+    elfPackCals := add(itemsAsInts)
+    if elfPackCals > maxCalsFound {
+      maxCalsFound = elfPackCals
+    }
   }
+
   return maxCalsFound
 }
 
@@ -32,4 +38,12 @@ func add(ints []int) int {
   // Cast the returned interface into an int
   intSum := sum.(int)
   return intSum
+}
+
+func main(){
+  puzzleInputByte, _ := ioutil.ReadFile("./input.txt")
+  puzzleInput := string(puzzleInputByte)
+
+  solution := PartOne(puzzleInput)
+  fmt.Println(solution)
 }
