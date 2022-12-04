@@ -72,6 +72,10 @@ func main(){
   puzzleInputByte, _ := ioutil.ReadFile("./input.txt")
   puzzleInput := string(puzzleInputByte)
 
-  solution := PartOne(puzzleInput)
-  fmt.Println(solution)
+  partOneSolution := PartOne(puzzleInput)
+  partTwoSolution := PartTwo(puzzleInput)
+  fmt.Printf("PartOne: %d", partOneSolution)
+  fmt.Println("")
+  fmt.Printf("PartTwo: %d", partTwoSolution)
+  fmt.Println("")
 }
