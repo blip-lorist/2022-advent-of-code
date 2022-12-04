@@ -5,8 +5,8 @@ import "testing"
 func TestPartOne(t *testing.T){
   testInput := `A Y
 B X
-C Z
-`
+C Z`
+
   expected := 15
   actual := PartOne(testInput)
 

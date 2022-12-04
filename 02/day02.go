@@ -22,7 +22,15 @@ var playerMoveToPoints = map[string]int {
 }
 
 func PartOne(inputList string) int {
-  return 0
+  totalScore := 0
+  rounds := strings.Split(inputList, "\n")
+  for i := 0; i < len(rounds); i++ {
+    round := rounds[i]
+    score := scoreRound(round)
+    totalScore += score
+  }
+
+  return totalScore
 }
 
 func scoreRound(roundString string) int {
