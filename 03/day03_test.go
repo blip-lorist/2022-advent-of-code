@@ -46,7 +46,7 @@ func TestDupeFinder(t *testing.T){
     expected := expectedOutputs[i]
     actual := dupeFinder(testInputs[i])
 
-    if expected != actual {
+    if expected != actual[0] {
       t.Errorf("got %s, wanted %s", actual, expected)
     }
   }
