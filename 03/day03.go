@@ -1,6 +1,5 @@
 package main
 import (
-  "fmt"
   "strings"
   "github.com/ghetzel/go-stockutil/sliceutil"
 )
@@ -65,7 +64,19 @@ var upperCasePri = map[string] int {
 
 
 func PartOne(inputList string) int {
-  return 0
+  prioritySum := 0
+  rucksacks := strings.Split(inputList, "\n")
+  for i := 0; i < len(rucksacks); i++ {
+    rucksack := rucksacks[i]
+    midIdx := len(rucksack) / 2
+    halves := [2]string{ rucksack[0: midIdx], rucksack[midIdx:] }
+
+    dupe := dupeFinder(halves)
+    if dupe != "" {
+      prioritySum += getPriority(dupe)
+    }
+  }
+  return prioritySum
 }
 
 func getPriority(letter string) int {
