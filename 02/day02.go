@@ -144,8 +144,10 @@ func main() {
 
 
   partOneSolution := PartOne(puzzleInput)
+  partTwoSolution := PartTwo(puzzleInput)
+
   fmt.Printf("PartOne: %d", partOneSolution)
   fmt.Println("")
-  //fmt.Printf("PartTwo: %d", partTwoSolution)
-  //fmt.Println("")
+  fmt.Printf("PartTwo: %d", partTwoSolution)
+  fmt.Println("")
 }
