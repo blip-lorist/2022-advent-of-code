@@ -32,3 +32,22 @@ func TestGetPriority(t *testing.T){
     }
   }
 }
+
+func TestDupeFinder(t *testing.T){
+  testInputs := [3][2]string{
+    {"vJrwpWtwJgWr", "hcsFMMfFFhFp"},
+    {"jqHRNqRjqzjGDLGL", "rsFMfFZSrLrFZsSL"},
+    {"PmmdzqPrV", "PmmdzqPrV"},
+  }
+
+  expectedOutputs := [3]string{"p", "L", "P"}
+
+  for i := 0; i < len(testInputs); i++ {
+    expected := expectedOutputs[i]
+    actual := dupeFinder(testInputs[i])
+
+    if expected != actual {
+      t.Errorf("got %s, wanted %s", actual, expected)
+    }
+  }
+}
