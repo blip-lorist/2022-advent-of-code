@@ -1,6 +1,8 @@
 package main
 import (
+  "fmt"
   "strings"
+  "io/ioutil"
 )
 
 var opponentMineMapping = map[string]string {
@@ -26,6 +28,10 @@ func PartOne(inputList string) int {
   rounds := strings.Split(inputList, "\n")
   for i := 0; i < len(rounds); i++ {
     round := rounds[i]
+    if round == "" {
+      continue
+    }
+
     score := scoreRound(round)
     totalScore += score
   }
@@ -58,3 +64,14 @@ func scoreRound(roundString string) int {
   return roundOutcome + myMovePoints
 }
 
+func main() {
+  puzzleInputByte, _ := ioutil.ReadFile("./input.txt")
+  puzzleInput := string(puzzleInputByte)
+
+
+  partOneSolution := PartOne(puzzleInput)
+  fmt.Printf("PartOne: %d", partOneSolution)
+  fmt.Println("")
+  //fmt.Printf("PartTwo: %d", partTwoSolution)
+  //fmt.Println("")
+}
