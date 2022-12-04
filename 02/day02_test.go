@@ -15,6 +15,19 @@ C Z`
   }
 }
 
+func TestPartTwo(t *testing.T){
+  testInput := `A Y
+B X
+C Z`
+
+  expected := 12
+  actual := PartOne(testInput)
+
+  if expected != actual {
+    t.Errorf("got %d, wanted %d", actual, expected)
+  }
+}
+
 func TestScoreRound(t *testing.T){
   testInputs := [3]string{"A Y", "B X", "C Z"}
 

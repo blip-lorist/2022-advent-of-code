@@ -39,6 +39,11 @@ func PartOne(inputList string) int {
   return totalScore
 }
 
+func PartTwo(inputList string) int {
+  totalScore := 0
+  return totalScore
+}
+
 func scoreRound(roundString string) int {
   roundSlice := strings.Split(roundString, " ")
   opponentMove := roundSlice[0]
