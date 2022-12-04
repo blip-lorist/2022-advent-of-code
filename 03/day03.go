@@ -81,6 +81,11 @@ func PartOne(inputList string) int {
   return prioritySum
 }
 
+func PartTwo(inputList string) int {
+  prioritySum := 0
+  return prioritySum
+}
+
 func getPriority(letter string) int {
   isUpper := letter == strings.ToUpper(letter)
 

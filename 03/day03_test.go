@@ -51,3 +51,21 @@ func TestDupeFinder(t *testing.T){
     }
   }
 }
+
+func TestPartTwo(t *testing.T){
+  testInput := `vJrwpWtwJgWrhcsFMMfFFhFp
+jqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL
+PmmdzqPrVvPwwTWBwg
+wMqvLMZHhHMvwLHjbvcjnnSBnvTQFn
+ttgJtRGJQctTZtZT
+CrZsJsPPZsGzwwsLwLmpwMDw`
+
+  expected := 70
+  actual := PartTwo(testInput)
+
+  if expected != actual {
+    t.Errorf("got %d, wanted %d", actual, expected)
+  }
+}
+
+
