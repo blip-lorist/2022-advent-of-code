@@ -33,6 +33,10 @@ func PartOne(inputList string) int {
   return maxCalsFound
 }
 
+func PartTwo(inputList string) int {
+  return 0
+}
+
 func add(ints []int) int {
   sum, _ := gm.Sum(ints)
 
