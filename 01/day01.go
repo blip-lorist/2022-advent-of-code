@@ -3,6 +3,7 @@ import (
   //"bufio"
   "fmt"
   "strings"
+  "sort"
   "io/ioutil"
   "strconv"
   gm "github.com/spatialcurrent/go-math/pkg/math"
@@ -34,7 +35,29 @@ func PartOne(inputList string) int {
 }
 
 func PartTwo(inputList string) int {
-  return 0
+  allTotals := []int{}
+
+  elfPackStrs := strings.Split(inputList, "\n\n")
+  for i := 0; i < len(elfPackStrs); i++ {
+    elfPack := elfPackStrs[i]
+    elfPackItems := strings.Split(elfPack, "\n")
+
+    itemsAsInts := []int{}
+    for j := 0; j < len(elfPackItems); j++ {
+      strVar := elfPackItems[j]
+      intVar, _ := strconv.Atoi(strVar)
+      itemsAsInts = append(itemsAsInts, intVar)
+    }
+
+    elfPackCals := add(itemsAsInts)
+    allTotals = append(allTotals, elfPackCals)
+  }
+
+  sort.Ints(allTotals)
+  topThree := allTotals[len(allTotals)-3:]
+  topThreeTotal := add(topThree)
+
+  return topThreeTotal
 }
 
 func add(ints []int) int {
