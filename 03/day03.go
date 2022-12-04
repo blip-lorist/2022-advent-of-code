@@ -1,6 +1,8 @@
 package main
 import (
+  "fmt"
   "strings"
+  "github.com/ghetzel/go-stockutil/sliceutil"
 )
 
 var lowerCasePri = map[string] int {
@@ -75,3 +77,18 @@ func getPriority(letter string) int {
     return lowerCasePri[letter]
   }
 }
+
+func dupeFinder(compartments_pair [2]string) string {
+
+  firstSlice := strings.Split(compartments_pair[0], "")
+  secondSlice := strings.Split(compartments_pair[1], "")
+
+  lettersIntersection := sliceutil.IntersectStrings(firstSlice, secondSlice)
+
+  if len(lettersIntersection) > 0 {
+    return lettersIntersection[0]
+  } else {
+    return ""
+  }
+}
+

@@ -37,7 +37,7 @@ func TestDupeFinder(t *testing.T){
   testInputs := [3][2]string{
     {"vJrwpWtwJgWr", "hcsFMMfFFhFp"},
     {"jqHRNqRjqzjGDLGL", "rsFMfFZSrLrFZsSL"},
-    {"PmmdzqPrV", "PmmdzqPrV"},
+    {"PmmdzqPrV", "vPwwTWBwg"},
   }
 
   expectedOutputs := [3]string{"p", "L", "P"}
