@@ -85,16 +85,17 @@ func PartTwo(inputList string) int {
   prioritySum := 0
   rucksacks := strings.Split(inputList, "\n")
   for i := 0; i < len(rucksacks); i++ {
-    if (i % 3) == 0 {
+    if (i%3 == 0) && (i+2 < len(rucksacks))  {
       firstSet := [2]string{ rucksacks[i], rucksacks[i+1] }
       secondSet := [2]string{ rucksacks[i+1], rucksacks[i+2] }
       firstDupe := dupeFinder(firstSet)
       secondDupe := dupeFinder(secondSet)
 
       if (firstDupe != nil) {
-        thirdSet := [2]string{ strings.Join(firstDupe[:], ","),  strings.Join(secondDupe[:], ",")}
+        thirdSet := [2]string{ strings.Join(firstDupe[:], ""),  strings.Join(secondDupe[:], "")}
         thirdDupe := dupeFinder(thirdSet)
         if thirdDupe != nil {
+          fmt.Println(thirdDupe)
           prioritySum += getPriority(thirdDupe[0])
         }
       }
@@ -137,11 +138,11 @@ func main() {
 
 
   partOneSolution := PartOne(puzzleInput)
-  //partTwoSolution := PartTwo(puzzleInput)
+  partTwoSolution := PartTwo(puzzleInput)
 
   fmt.Printf("PartOne: %d", partOneSolution)
   fmt.Println("")
-  //fmt.Printf("PartTwo: %d", partTwoSolution)
-  //fmt.Println("")
+  fmt.Printf("PartTwo: %d", partTwoSolution)
+  fmt.Println("")
 }
 
