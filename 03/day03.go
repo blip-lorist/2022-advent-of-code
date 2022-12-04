@@ -1,5 +1,7 @@
 package main
 import (
+  "fmt"
+  "io/ioutil"
   "strings"
   "github.com/ghetzel/go-stockutil/sliceutil"
 )
@@ -101,5 +103,23 @@ func dupeFinder(compartments_pair [2]string) string {
   } else {
     return ""
   }
+}
+
+func main() {
+  puzzleInputByte, err := ioutil.ReadFile("./input.txt")
+  if err != nil {
+    panic(err)
+  }
+
+  puzzleInput := string(puzzleInputByte)
+
+
+  partOneSolution := PartOne(puzzleInput)
+  //partTwoSolution := PartTwo(puzzleInput)
+
+  fmt.Printf("PartOne: %d", partOneSolution)
+  fmt.Println("")
+  //fmt.Printf("PartTwo: %d", partTwoSolution)
+  //fmt.Println("")
 }
 
