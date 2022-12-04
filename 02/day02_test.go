@@ -28,14 +28,14 @@ C Z`
   }
 }
 
-func TestScoreRound(t *testing.T){
+func TestScoreRoundMoves(t *testing.T){
   testInputs := [3]string{"A Y", "B X", "C Z"}
 
   expectedOutputs := [3]int{8, 1, 6}
 
   for i := 0; i < len(testInputs); i++ {
     expected := expectedOutputs[i]
-    actual := scoreRound(testInputs[i])
+    actual := scoreRoundMoves(testInputs[i])
 
     if expected != actual {
       t.Errorf("got %d, wanted %d", actual, expected)

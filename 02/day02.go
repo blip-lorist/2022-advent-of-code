@@ -5,24 +5,6 @@ import (
   "io/ioutil"
 )
 
-var opponentMineMapping = map[string]string {
-  "A": "X",
-  "B": "Y",
-  "C": "Z",
-}
-
-var moveToWinningMove = map[string]string {
-  "A": "Y",
-  "B": "Z",
-  "C": "X",
-}
-
-var playerMoveToPoints = map[string]int {
-  "X": 1,
-  "Y": 2,
-  "Z": 3,
-}
-
 func PartOne(inputList string) int {
   totalScore := 0
   rounds := strings.Split(inputList, "\n")
@@ -32,7 +14,7 @@ func PartOne(inputList string) int {
       continue
     }
 
-    score := scoreRound(round)
+    score := scoreRoundMoves(round)
     totalScore += score
   }
 
@@ -44,7 +26,25 @@ func PartTwo(inputList string) int {
   return totalScore
 }
 
-func scoreRound(roundString string) int {
+func scoreRoundMoves(roundString string) int {
+  var opponentMineMapping = map[string]string {
+    "A": "X",
+    "B": "Y",
+    "C": "Z",
+  }
+
+  var moveToWinningMove = map[string]string {
+    "A": "Y",
+    "B": "Z",
+    "C": "X",
+  }
+
+  var playerMoveToPoints = map[string]int {
+    "X": 1,
+    "Y": 2,
+    "Z": 3,
+  }
+
   roundSlice := strings.Split(roundString, " ")
   opponentMove := roundSlice[0]
   myMove := roundSlice[1]
